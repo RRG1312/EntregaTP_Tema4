@@ -9,16 +9,19 @@ public class Ejercicio5 {
         //int numSecretro = (int)Math.floor(Math.random() * (100 - 0 + 1) + 0);
         int numElegido = (int)Math.floor(Math.random() * (100 - 0 + 1) + 0);
         System.out.println("Elige un numero del 1 al 100 luego presiona cualquer tecla");
-
+        int mayor=100;
+        int menor=0;
         while(!encontrado){
             System.out.println("Pruebo con "+numElegido+"¿Es mayor, menor o es el numero secreto(+/-/=)?");
             char pista = teclado.nextLine().charAt(0);
             switch (pista){
                 case '+':
-                    numElegido = (int)Math.floor(Math.random() * (100 - numElegido + 1) + numElegido);
+                    menor= numElegido;
+                    numElegido = (int)Math.floor(Math.random() * (mayor - menor + 1) + menor);
                     break;
                 case '-':
-                    numElegido = (int)Math.floor(Math.random() * (numElegido - 0 + 1) + 0);
+                    mayor=numElegido;
+                    numElegido = (int)Math.floor(Math.random() * (mayor - menor + 1) + menor);
                     break;
                 case '=':
                     encontrado=true;
